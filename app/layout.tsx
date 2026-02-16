@@ -9,11 +9,6 @@ const dmSans = DM_Sans({
   weight: ["400", "500", "600"],
 });
 
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
-
 export const metadata: Metadata = {
   title: "Naveen Hiremath",
   description: "About Me",
