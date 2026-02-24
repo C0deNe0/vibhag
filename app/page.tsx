@@ -25,6 +25,10 @@ import { Navbar } from "./components/Navbar";
 import { Recommendation } from "./components/Recommendation";
 import { Blogs } from "./components/Blogs";
 import { getMarkdownContent } from "./data/content";
+import { TypingChallenge } from "./components/gameComponents/TypingChallenge";
+import { SnakeGame } from "./components/gameComponents/SnakeGame";
+import { cn } from "./utils/utils";
+import { ProfileCover } from "./components/ProfileCover";
 
 // import { PomodoroTimer } from "./components/PomodoroTimer";
 // import { NeuralNetworkSim } from "./components/NeuralNetworkSim";
@@ -136,7 +140,8 @@ export default function Home() {
                   '"Courier New", Courier, "Lucida Sans Typewriter", "Lucida Console", monospace',
               }}
             >
-              {markdownContent}
+              {/* <TypingChallenge /> */}
+              <SnakeGame />
             </pre>
           </motion.main>
         ) : (
@@ -150,7 +155,7 @@ export default function Home() {
             className="flex w-full max-w-2xl flex-col items-center text-center"
           >
            {/* ADD HERE THE EXTRA CONTENT AT THE FIRST LIKE CHANDAI */}
-
+            <ProfileCover />
             {/* Hero Text */}
             <h1 className="mb-4 text-5xl font-bold tracking-tight sm:text-7xl">
               Naveen Hiremath
@@ -740,4 +745,18 @@ export default function Home() {
       )}
     </div>
   );
+}
+
+
+function Separator({ className }: { className?: string }) {
+  return (
+    <div
+      className={cn(
+        "relative flex h-8 w-full border-x border-edge",
+        "before:absolute before:-left-[100vw] before:-z-1 before:h-8 before:w-[200vw]",
+        "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-edge)]/56",
+        className
+      )}
+    />
+  )
 }
