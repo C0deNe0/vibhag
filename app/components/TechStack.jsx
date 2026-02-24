@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 const categories = [
   {
@@ -57,9 +58,13 @@ export function TechStack() {
       </div>
 
       <AnimatePresence mode="wait">
-        {!isExpanded ? <motion.div>
+        {!isExpanded ? (
+          <motion.div>
             <div></div>
-        </motion.div> : <motion.div></motion.div>}
+          </motion.div>
+        ) : (
+          <motion.div></motion.div>
+        )}
       </AnimatePresence>
     </div>
   );
