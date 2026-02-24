@@ -21,17 +21,16 @@ import { useTheme } from "next-themes";
 import { QRCodeSVG } from "qrcode.react";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
+import { Navbar } from "./components/Navbar";
+import { Recommendation } from "./components/Recommendation";
+import { Blogs } from "./components/Blogs";
+import { getMarkdownContent } from "./data/content";
 
 // import { PomodoroTimer } from "./components/PomodoroTimer";
 // import { NeuralNetworkSim } from "./components/NeuralNetworkSim";
 
-// import { getMarkdownContent } from "./data/content";
 
-const DiscordIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-    <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1971.3728.2914a.077.077 0 01-.0066.1277 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z" />
-  </svg>
-);
+
 
 export default function Home() {
   const [time, setTime] = useState<string>("");
@@ -60,7 +59,7 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
 
-  //   const markdownContent = getMarkdownContent(time);
+    const markdownContent = getMarkdownContent(time);
 
   const [showEasterEgg, setShowEasterEgg] = useState(false);
   const [isLofiPlaying, setIsLofiPlaying] = useState(false);
@@ -99,20 +98,20 @@ export default function Home() {
     setIsLofiPlaying(!isLofiPlaying);
   };
 
-  //   const starPositions = useMemo(() => {
-  //     return [...Array(50)].map(() => ({
-  //       top: `${Math.random() * 100}%`,
-  //       left: `${Math.random() * 100}%`,
-  //       duration: 2 + Math.random() * 3,
-  //       delay: Math.random() * 5,
-  //     }));
-  //   }, []);
+    const starPositions = useMemo(() => {
+      return [...Array(50)].map(() => ({
+        top: `${Math.random() * 100}%`,
+        left: `${Math.random() * 100}%`,
+        duration: 2 + Math.random() * 3,
+        delay: Math.random() * 5,
+      }));
+    }, []);
 
   return (
     <div
       className={`relative flex min-h-screen flex-col items-center bg-white dark:bg-black px-3 pt-16 text-black dark:text-white selection:bg-black dark:selection:bg-white selection:text-white dark:selection:text-black pb-32 sm:px-4 sm:pt-24 sm:pb-40 overflow-x-hidden transition-colors duration-300`}
     >
-      {/* Easter Egg Effects */}
+      
 
       {/* Theme Toggle in Top Right */}
       <div className="fixed top-6 right-6 z-50">
@@ -137,7 +136,7 @@ export default function Home() {
                   '"Courier New", Courier, "Lucida Sans Typewriter", "Lucida Console", monospace',
               }}
             >
-              {/* {markdownContent} */}
+              {markdownContent}
             </pre>
           </motion.main>
         ) : (
@@ -615,73 +614,13 @@ export default function Home() {
               <TechStack />
             </div>
 
-            {/* Recommendations by Clients Section */}
-            <div className="mb-16 w-full text-left">
-              <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
-                Recommendations by Clients
-              </h2>
-              <div className="space-y-8">
-                {/* Roy Feldman Recommendation */}
-                <div className="group border-l-2 border-gray-200 dark:border-gray-800 pl-6 transition-all hover:border-black dark:hover:border-white">
-                  <div className="mb-3">
-                    <a
-                      href="https://www.linkedin.com/in/royhax/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-base font-semibold text-black dark:text-white underline underline-offset-4 decoration-gray-300 dark:decoration-gray-700 hover:decoration-black dark:hover:decoration-white transition-colors"
-                    >
-                      Roy Feldman
-                    </a>
-                  </div>
-                  <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-                    I've had the privilege to work with Aditya on several highly
-                    technical cybersecurity R&D projects involving design and
-                    implementation of defensive network components in Golang,
-                    network protocol research and analysis. He is a bright young
-                    engineer, extremely talented in hacking and cybersecurity,
-                    with a natural curiosity and passion for hacking, and a gift
-                    understanding how systems work, how to design and break
-                    them. I am certain that he will succeed in any endeavor he
-                    puts his mind to, in the realms of cybersecurity,
-                    engineering and beyond! :)
-                  </p>
-                </div>
 
-                {/* Tom Granot Recommendation */}
-                <div className="group border-l-2 border-gray-200 dark:border-gray-800 pl-6 transition-all hover:border-black dark:hover:border-white">
-                  <div className="mb-3">
-                    <a
-                      href="https://www.linkedin.com/in/tomgranot/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-base font-semibold text-black dark:text-white underline underline-offset-4 decoration-gray-300 dark:decoration-gray-700 hover:decoration-black dark:hover:decoration-white transition-colors"
-                    >
-                      Tom Granot
-                    </a>
-                  </div>
-                  <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-                    It's not often that you get to talk to a person who is not
-                    only hungry for mentorship, but comes out of the gate with
-                    the attitude that enables him to learn so, so quickly on his
-                    feet.
-                    <br />
-                    <br />
-                    Aditya did research for highly technical content for me and
-                    independently navigated difficult situations without a lot
-                    of guidance. If you're looking for someone to research a
-                    technical topic for your content work, Aditya is
-                    disciplined, thorough and insistent on understanding things
-                    in depth before giving a final output.
-                    <br />
-                    <br />
-                    Keep on keeping on brother!
-                  </p>
-                </div>
-              </div>
-            </div>
+
+            {/* Recommendations by Clients Section */}
+            <Recommendation />
 
             {/* Videos Section */}
-            <div className="mb-16 w-full text-left">
+            {/* <div className="mb-16 w-full text-left">
               <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
                 Explainer Videos
               </h2>
@@ -705,124 +644,10 @@ export default function Home() {
                   className="h-full w-full"
                 />
               </div>
-            </div>
+            </div> */}
 
             {/* Writings & Blogs Section */}
-            <div className="mb-16 w-full text-left">
-              <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
-                Writings & Blogs
-              </h2>
-              <p className="w-full text-lg leading-relaxed text-gray-600 dark:text-gray-400">
-                I host my thoughts on{" "}
-                <a
-                  href="https://medium.com/@access.naveenhiremath"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-black dark:text-white underline underline-offset-4 transition-colors hover:text-gray-600 dark:hover:text-gray-300"
-                >
-                  Medium
-                </a>{" "}
-                rather than building a custom site. Instead of overengineering
-                and reinventing the wheel, I prefer leveraging a mature platform
-                that lets me focus on what matters: sharing insights on AI
-                systems, product strategy, and technical architecture.
-              </p>
-            </div>
-
-            {/* Library Section */}
-            <div className="mb-16 w-full text-left">
-              <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
-                Library
-              </h2>
-
-              {/* Dev Subsection */}
-              <div className="mb-8">
-                <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-600">
-                  Dev
-                </h3>
-                <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-                  {[
-                    {
-                      title: "Linux Kernel Development",
-                      author: "Robert Love",
-                    },
-                    {
-                      title: "Hacking: The Art of Exploitation",
-                      author: "Jon Erickson",
-                    },
-                    {
-                      title: "Linux in a Nutshell",
-                      author:
-                        "Ellen Siever, Stephen Figgins, Robert Love, and Arnold Robbins",
-                    },
-                    {
-                      title: "Linux Kernel in a Nutshell",
-                      author: "Greg Kroah-Hartman",
-                    },
-                    {
-                      title: "The Art of Electronics",
-                      author: "Paul Horowitz and Winfield Hill",
-                    },
-                    { title: "Nmap Cookbook", author: "Nicholas Marsh" },
-                  ].map((book) => (
-                    <div
-                      key={book.title}
-                      className="group flex flex-col gap-1 transition-all"
-                    >
-                      <span className="text-sm font-medium text-black dark:text-white group-hover:underline underline-offset-4 decoration-gray-200 dark:decoration-gray-800 transition-all">
-                        {book.title}
-                      </span>
-                      <span className="text-xs text-gray-400 dark:text-gray-500">
-                        {book.author}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Casual Reads Subsection */}
-              <div className="mb-4">
-                <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-600">
-                  Casual Reads
-                </h3>
-                <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-                  {[
-                    {
-                      title: "Hooked: How to Build Habit-Forming Products",
-                      author: "Nir Eyal",
-                    },
-                    { title: "The Lean Startup", author: "Eric Ries" },
-                    { title: "Zero to One", author: "Peter Thiel" },
-                    {
-                      title: "The Almanack of Naval Ravikant",
-                      author: "Eric Jorgenson",
-                    },
-                    { title: "Deep Work", author: "Cal Newport" },
-                    {
-                      title: "The Anthology of Balaji Srinivasan",
-                      author: "Eric Jorgenson",
-                    },
-                  ].map((book) => (
-                    <div
-                      key={book.title}
-                      className="group flex flex-col gap-1 transition-all"
-                    >
-                      <span className="text-sm font-medium text-black dark:text-white group-hover:underline underline-offset-4 decoration-gray-200 dark:decoration-gray-800 transition-all">
-                        {book.title}
-                      </span>
-                      <span className="text-xs text-gray-400 dark:text-gray-500">
-                        {book.author}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Note */}
-              <p className="mt-6 text-xs italic text-gray-400 dark:text-gray-500">
-                *and many more, these are just one of my best reads
-              </p>
-            </div>
+           <Blogs />
 
             {/* Thing about me Section */}
             <div className="mb-16 w-full text-left">
@@ -900,91 +725,12 @@ export default function Home() {
       </AnimatePresence>
 
       {/* Glass Island Navbar */}
-      <nav className="fixed bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-full border border-gray-200 dark:border-zinc-700 bg-white/70 dark:bg-zinc-900/80 px-4 py-3 shadow-sm backdrop-blur-md transition-all hover:bg-white/90 dark:hover:bg-zinc-900 sm:gap-6 sm:px-6">
-        {/* Mode Toggle Switch */}
-        <div className="flex items-center">
-          <button
-            onClick={() => setMode(mode === "human" ? "agent" : "human")}
-            className="group relative flex h-7 w-12 cursor-pointer rounded-full bg-gray-200 dark:bg-zinc-700 p-1 transition-colors duration-200 ease-in-out hover:bg-gray-300 dark:hover:bg-zinc-600 focus:outline-none"
-            role="switch"
-            aria-checked={mode === "agent"}
-            title={`Switch to ${mode === "human" ? "agent" : "human"} mode`}
-          >
-            <div
-              className={`flex h-5 w-5 transform items-center justify-center rounded-full bg-white dark:bg-white shadow-sm transition duration-200 ease-in-out ${
-                mode === "agent" ? "translate-x-5" : "translate-x-0"
-              }`}
-            >
-              {mode === "human" ? (
-                <User className="h-3 w-3 text-black" />
-              ) : (
-                <Bot className="h-3 w-3 text-black" />
-              )}
-            </div>
-          </button>
-        </div>
-        <button
-          onClick={() => setShowQR(true)}
-          className="text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors hover:scale-110"
-          aria-label="Show QR Code"
-        >
-          <QrCode className="h-5 w-5" />
-        </button>
-        <div className="h-6 w-px bg-gray-200 dark:bg-zinc-700" />
-        <a
-          href="https://github.com/C0deNe0"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors hover:scale-110"
-        >
-          <Github className="h-5 w-5" />
-        </a>
-        <a
-          href="www.linkedin.com/in/naveenhiremath1"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors hover:scale-110"
-        >
-          <Linkedin className="h-5 w-5" />
-        </a>
-        <a
-          href="https://x.com/firecaffeine"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors hover:scale-110"
-        >
-          {/* <FaXTwitter className="h-5 w-5" /> */}
-        </a>
-        <a
-          href="https://youtube.com/@theracecondition"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors hover:scale-110"
-        >
-          {/* <Youtube className="h-5 w-5" /> */}
-        </a>
-        <a
-          href="https://discord.gg/ry4YCJaShK"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors hover:scale-110"
-        >
-          <DiscordIcon className="h-5 w-5" />
-        </a>
-        <a
-          href="https://cal.com/adi-patil/30min"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors hover:scale-110"
-        >
-          <Calendar className="h-5 w-5" />
-        </a>
-      </nav>
+     <Navbar mode={mode} setMode={setMode} showQR={showQR} setShowQR={setShowQR } />
 
       {/* QR Code Modal */}
       {showQR && (
         <div
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/20 dark:bg-white/5 backdrop-blur-sm"
+          className="fixed inset-0 z-60 flex items-center justify-center bg-black/20 dark:bg-white/5 backdrop-blur-sm"
           onClick={() => setShowQR(false)}
         >
           <div
