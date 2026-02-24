@@ -149,24 +149,7 @@ export default function Home() {
             transition={{ duration: 0.35, ease: "easeOut" }}
             className="flex w-full max-w-2xl flex-col items-center text-center"
           >
-            {/* Profile Image - Easter Egg Trigger */}
-            <button
-              onClick={() => setShowEasterEgg(!showEasterEgg)}
-              className="group relative mb-2 h-40 w-40 grayscale filter sm:h-56 sm:w-56 overflow-hidden cursor-pointer transition-all duration-500 hover:grayscale-0 active:scale-95"
-              aria-label="Toggle Aura Mode"
-            >
-              <Image
-                src="/me.png" // User's photo
-                alt="Profile"
-                fill
-                className={`object-contain transition-all duration-700 ${showEasterEgg ? "grayscale-0 scale-105" : "grayscale"}`}
-                priority
-              />
-              <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white via-white/60 to-transparent dark:from-black dark:via-black/60 backdrop-blur-[1px]" />
-
-              {/* Subtle Glow on Hover */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[inset_0_0_20px_rgba(59,130,246,0.3)] rounded-full pointer-events-none" />
-            </button>
+           {/* ADD HERE THE EXTRA CONTENT AT THE FIRST LIKE CHANDAI */}
 
             {/* Hero Text */}
             <h1 className="mb-4 text-5xl font-bold tracking-tight sm:text-7xl">

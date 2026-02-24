@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 
 const categories = [
@@ -52,20 +53,28 @@ export function TechStack() {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div>
-      <div>
-        <button></button>
-      </div>
+    <div className="w-full space-y-4">
+        <div className="flex justify-end">
+            <button onClick={()=>{
+                setIsExpanded(!isExpanded)
+            }} className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-black dark:hover:text-white transition-all duration-200 cursor-pointer">
+                { isExpanded ?"Collapse":"Expand"}
+                {isExpanded ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
+            </button>
 
-      <AnimatePresence mode="wait">
-        {!isExpanded ? (
-          <motion.div>
-            <div></div>
-          </motion.div>
-        ) : (
-          <motion.div></motion.div>
-        )}
-      </AnimatePresence>
+            <AnimatePresence mode="wait">
+                {!isExpanded ?(
+                    <motion.div>
+                            <div></div>
+                    </motion.div>
+                ):(
+                    <motion.div>
+
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </div>
+      
     </div>
   );
 }
