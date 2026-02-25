@@ -156,6 +156,7 @@ export default function Home() {
           >
            {/* ADD HERE THE EXTRA CONTENT AT THE FIRST LIKE CHANDAI */}
             <ProfileCover />
+    
             {/* Hero Text */}
             <h1 className="mb-4 text-5xl font-bold tracking-tight sm:text-7xl">
               Naveen Hiremath

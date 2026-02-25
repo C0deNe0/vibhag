@@ -1,5 +1,5 @@
 // import { BrandContextMenu } from "@/components/brand-context-menu"
-import { ChanhDaiMark } from "./chandai/chandaiMark"
+import { NaveenHiremathMark } from "./NaveenHiremathMark"
 import { Magnet } from "./magnet"
 import { cn } from "../utils/utils"
 
@@ -16,7 +16,7 @@ export function ProfileCover() {
         )}
       >
         <Magnet magnetStrength={6}>
-          <ChanhDaiMark
+          <NaveenHiremathMark
             id="js-cover-mark"
             className="h-14 w-28 sm:h-16 sm:w-32"
           />
