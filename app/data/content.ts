@@ -112,13 +112,13 @@ Keep on keeping on brother!
 
 ## Explainer Videos
 
-Here is how I explain complex systems on my [YouTube Channel](https://www.youtube.com/@theracecondition)
+Here is how I explain complex systems on my [YouTube Channel](https://www.youtube.com/@accessnaveenhiremath)
 
 Featured Video: [https://www.youtube.com/embed/m84tBP_4DWE](https://www.youtube.com/embed/m84tBP_4DWE)
 
 ## Writings & Blogs
 
-I host my thoughts on [Medium](https://medium.com/@adityapatil24680) rather than building a custom site. Instead of overengineering and reinventing the wheel, I prefer leveraging a mature platform that lets me focus on what matters: sharing insights on AI systems, product strategy, and technical architecture.
+I host my thoughts on [Medium](https://medium.com/@access.naveenhiremath) rather than building a custom site. Instead of overengineering and reinventing the wheel, I prefer leveraging a mature platform that lets me focus on what matters: sharing insights on AI systems, product strategy, and technical architecture.
 
 ## Library
 

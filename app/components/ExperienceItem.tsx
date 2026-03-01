@@ -12,6 +12,8 @@ interface ExperienceItemProps {
   collapsedHeight?: string;
 }
 
+
+
 export function ExperienceItem({
   title,
   role,
@@ -71,3 +73,5 @@ export function ExperienceItem({
     </div>
   );
 }
+
+
