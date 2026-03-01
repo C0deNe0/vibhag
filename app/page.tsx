@@ -113,12 +113,12 @@ export default function Home() {
 
   return (
     <div
-      className={` m-1 border-zinc-800 rounded-md  relative flex min-h-screen flex-col items-center bg-white dark:bg-black px-3 pt-16 text-black dark:text-white selection:bg-black dark:selection:bg-white selection:text-white dark:selection:text-black pb-32 sm:px-4 sm:pt-24 sm:pb-40 overflow-x-hidden transition-colors duration-300`}
+      className=" m-1 border-zinc-800  flex min-h-screen flex-col items-center bg-white dark:bg-black px-3 pt-1  text-black dark:text-white selection:bg-black dark:selection:bg-white selection:text-white dark:selection:text-black pb-32 sm:px-4 sm:pt-20 sm:pb-40 overflow-x-hidden transition-colors duration-300"
     >
       
 
       {/* Theme Toggle in Top Right */}
-      <div className="fixed top-6 right-6 z-50">
+      <div className="fixed top-6 right-6 z-50 ">
         <ThemeToggle />
       </div>
 
@@ -152,7 +152,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            className="flex w-full border  border-amber-200 max-w-2xl flex-col items-center text-center"
+            className="flex w-full border border-zinc-800 rounded-md  max-w-236 sm:px-0 md:px-5  py-3  flex-col items-center text-center [&>div]:border [&>div]:border-b-8 [&>div]:border-zinc-900 md:[&>div]:rounded-md  [&>div]:p-4 [&>div]:m-2 "
           >
            {/* ADD HERE THE EXTRA CONTENT AT THE FIRST LIKE CHANDAI */}
             <ProfileCover />
@@ -163,7 +163,7 @@ export default function Home() {
             </h1>
 
             {/* Phonetic Pronunciation (Aesthetic touch often found in minimal portfolios) */}
-            <div className="mb-8 flex flex-wrap items-center justify-center gap-2 text-xs text-gray-400 dark:text-gray-500 sm:text-sm">
+            <div className="mb-8 flex flex-wrap border-yellow-200  items-center justify-center gap-2 text-xs text-gray-400 dark:text-gray-500 sm:text-sm">
               <span>/əˈdɪtjə pɑːˈtiːl/</span>
               <span className="text-gray-300 dark:text-gray-700">•</span>
               <span>noun</span>
