@@ -29,6 +29,7 @@ import { TypingChallenge } from "./components/gameComponents/TypingChallenge";
 import { SnakeGame } from "./components/gameComponents/SnakeGame";
 import { cn } from "./utils/utils";
 import { ProfileCover } from "./components/ProfileCover";
+import { SpinningNameCube } from "./components/SpinningNameCube";
 
 // import { PomodoroTimer } from "./components/PomodoroTimer";
 // import { NeuralNetworkSim } from "./components/NeuralNetworkSim";
@@ -164,7 +165,8 @@ export default function Home() {
 
                         {/* Phonetic Pronunciation (Aesthetic touch often found in minimal portfolios) */}
                         <div className="mb-8 flex flex-wrap border-yellow-200  items-center justify-center gap-2 text-xs text-gray-400 dark:text-gray-500 sm:text-sm">
-                            <span>/əˈdɪtjə pɑːˈtiːl/</span>
+
+                            <SpinningNameCube />
                             <span className="text-gray-300 dark:text-gray-700">•</span>
                             <span>noun</span>
                             <span className="text-gray-300 dark:text-gray-700">•</span>
@@ -221,6 +223,8 @@ export default function Home() {
                             </div>
                         </div>
 
+
+                        {/* APNE STYLE ME DALNE KA HAIN */}
                         <div className="w-full space-y-4 text-left text-base leading-relaxed text-gray-600 dark:text-gray-400 sm:text-lg md:text-xl">
                             <p>
                                 a full-stack developer and{" "}
