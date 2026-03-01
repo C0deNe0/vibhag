@@ -4,11 +4,13 @@
 :root {
   --background: #ffffff;
   --foreground: #000000;
+  --border: #958484;
 }
 
 .dark {
   --background: #000000;
   --foreground: #ffffff;
+  --border: #333232;
 }
 
 @theme inline {
@@ -16,6 +18,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-dm-sans);
   --font-mono: var(--font-geist-mono);
+  
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,8 +27,17 @@
     --foreground: #ededed;
   }
 }
+::-webkit-scrollbar {
+  display: none;
+}
+html{
+      scrollbar-width: none;
+
+}
 
 body {
+      -ms-overflow-style: none;
+
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-dm-sans), Helvetica, sans-serif;
@@ -49,7 +61,10 @@ body {
   display: none;
 }
 
+
+/* make the scroll go away and want its length to be short */
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+

@@ -113,7 +113,7 @@ export default function Home() {
 
   return (
     <div
-      className={`relative flex min-h-screen flex-col items-center bg-white dark:bg-black px-3 pt-16 text-black dark:text-white selection:bg-black dark:selection:bg-white selection:text-white dark:selection:text-black pb-32 sm:px-4 sm:pt-24 sm:pb-40 overflow-x-hidden transition-colors duration-300`}
+      className={` m-1 border-zinc-800 rounded-md  relative flex min-h-screen flex-col items-center bg-white dark:bg-black px-3 pt-16 text-black dark:text-white selection:bg-black dark:selection:bg-white selection:text-white dark:selection:text-black pb-32 sm:px-4 sm:pt-24 sm:pb-40 overflow-x-hidden transition-colors duration-300`}
     >
       
 
@@ -152,7 +152,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            className="flex w-full max-w-2xl flex-col items-center text-center"
+            className="flex w-full border  border-amber-200 max-w-2xl flex-col items-center text-center"
           >
            {/* ADD HERE THE EXTRA CONTENT AT THE FIRST LIKE CHANDAI */}
             <ProfileCover />
