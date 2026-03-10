@@ -49,16 +49,22 @@ body {
   }
 
   to {
-    transform: translateY(-50%);
+    transform: translateX(-50%);
   }
 }
 
 .animate-infinite-scroll {
-  animation: infinite-scroll 30s linear infinite;
+  display: flex;
+  animation: marquee 20s linear infinite;
 }
 
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+.animate-infinite-scroll.paused {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* adjust to your content width */
 }
 
 
