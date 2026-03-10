@@ -354,8 +354,9 @@ export default function Home() {
                                 Tech Stack
                             </h2>
                             <p className="mb-8 text-lg text-gray-600 dark:text-gray-400">
-                                I&apos;m a generalist at heart who can build with anything, but
-                                here&apos;s the core stack I&apos;ve spent the most time with:
+                                Over time, I’ve explored a wide range of technologies. The tools listed
+                                below represent the ones I rely on most frequently when designing and
+                                developing modern applications.
                             </p>
                             <TechStack />
                         </div>
@@ -394,48 +395,8 @@ export default function Home() {
 
                         {/* Writings & Blogs Section */}
                         <Blogs />
-
-                        {/* Thing about me Section */}
-                        {/* <div className="mb-16 w-full text-left">
-                            <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
-                                Thing about me
-                            </h2>
-                            <div className="space-y-6">
-                                <p className="w-full text-lg leading-relaxed text-gray-600 dark:text-gray-400">
-                                    Beyond engineering and build systems, I find balance in the
-                                    tactile and the thoughtful. Whether it&apos;s exploring the
-                                    nuances of complex architectures or spending time in the real
-                                    world, my approach to life is driven by curiosity and a desire
-                                    to understand how things work at their core.
-                                </p>
-
-                                <div className="flex justify-center">
-                                    <div
-                                        className="relative h-[250px] w-full max-w-sm grayscale hover:grayscale-0 transition-all duration-700 sm:h-[350px]"
-                                        style={{
-                                            maskImage:
-                                                "radial-gradient(circle, black 40%, transparent 95%)",
-                                            WebkitMaskImage:
-                                                "radial-gradient(circle, black 40%, transparent 95%)",
-                                        }}
-                                    >
-                                        <Image
-                                            src="/casual.png"
-                                            alt="Casual photo"
-                                            fill
-                                            className="object-contain object-center"
-                                        />
-                                    </div>
-                                </div>
-
-                                <p className="w-full text-lg leading-relaxed text-gray-600 dark:text-gray-400">
-                                    I believe that the best products are built by people who have
-                                    a diverse range of interests. It&apos;s the unique combination
-                                    of technical depth and human perspective that allows us to
-                                    create technology that actually resonates.
-                                </p>
-                            </div>
-                        </div> */}
+                        {/* 
+                        <a href="https://app.daily.dev/0_naveen_0"><img src="https://api.daily.dev/devcards/v2/9fOrzy05ikhdgoaVtxTZ1.png?type=default&r=ai0" width="356" alt="Naveen's Dev Card" /></a> */}
 
                         {/* Get in Touch Section */}
                         <div className="mb-16 w-full text-left">
