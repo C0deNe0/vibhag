@@ -256,7 +256,7 @@ export default function Home() {
 
                         {/* Experience Section */}
                         <div className="mb-16 w-full text-left">
-                            <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+                            <h2 className="mb-6 text-md font-extrabold uppercase tracking-wider text-gray-400 dark:text-gray-500">
                                 Experience
                             </h2>
                             <div className="space-y-12">
@@ -323,81 +323,9 @@ export default function Home() {
                             </div>
                         </div>
 
-                        {/* In Between These Experiences Section */}
-                        <div className="mb-16 w-full text-left">
-                            <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
-                                In Between These Experiences
-                            </h2>
-                            <div className="rounded-xl border border-gray-200 dark:border-gray-800 p-6 sm:p-8">
-                                <ExperienceItem
-                                    title="The Product Building Journey"
-                                    role=""
-                                    collapsible={true}
-                                >
-                                    <div className="space-y-4">
-                                        <p>
-                                            I've been building and experimenting on the product side
-                                            for a long time. Each previous product always feels naive
-                                            in hindsight, but looking back, I can see they were
-                                            incrementally better, each iteration teaching me something
-                                            new about users, infrastructure, and what it takes to
-                                            build something people actually want.
-                                        </p>
-
-                                        <p>
-                                            It started with{" "}
-                                            <span className="font-medium">MetaWiper</span> during my
-                                            sophomore year, a tool that cleaned image metadata. No one
-                                            would use it, but I was proud. It was my first real
-                                            attempt at shipping something complete.
-                                        </p>
-
-                                        <p>
-                                            Next came <span className="font-medium">Stockic</span>, a
-                                            news app where I spent months doing serious infrastructure
-                                            work. This was where I learned to build systems that could
-                                            scale, not just features that looked good.
-                                        </p>
-
-                                        <p>
-                                            Then I worked on{" "}
-                                            <span className="font-medium">Gloss Card</span>, and for
-                                            the first time, a customer actually wanted to buy it for
-                                            their product. That validation, knowing someone saw enough
-                                            value to pay, was a turning point.
-                                        </p>
-
-                                        <p>
-                                            After that, I built{" "}
-                                            <span className="font-medium">NeuraLeap</span>, where I
-                                            had the most meaningful user interactions yet, HRs from
-                                            established firms. I worked on data pipelines capable of
-                                            handling 50 million LinkedIn profiles and processing them
-                                            with AI. The scale was different, the stakes were higher,
-                                            and the technical challenges forced me to level up.
-                                        </p>
-
-                                        <p>
-                                            Most recently, I worked on{" "}
-                                            <span className="font-medium">Meteor</span>, an AI SEO
-                                            toolkit at Entrepreneurs First. This time, my product was
-                                            being used by 6 YC-backed companies. Real users. Real
-                                            traction. Real feedback loops.
-                                        </p>
-
-                                        <p className="font-medium text-black">
-                                            So yes, hard work and consistency pay off. Each product
-                                            was a step forward, even when it didn&apos;t feel like it
-                                            at the time.
-                                        </p>
-                                    </div>
-                                </ExperienceItem>
-                            </div>
-                        </div>
-
                         {/* Education Section */}
                         <div className="mb-16 w-full text-left">
-                            <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+                            <h2 className="mb-6 text-md font-extrabold uppercase tracking-wider text-gray-400 dark:text-gray-500">
                                 Education
                             </h2>
                             <div className="space-y-12">
@@ -468,7 +396,7 @@ export default function Home() {
                         <Blogs />
 
                         {/* Thing about me Section */}
-                        <div className="mb-16 w-full text-left">
+                        {/* <div className="mb-16 w-full text-left">
                             <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
                                 Thing about me
                             </h2>
@@ -507,11 +435,11 @@ export default function Home() {
                                     create technology that actually resonates.
                                 </p>
                             </div>
-                        </div>
+                        </div> */}
 
                         {/* Get in Touch Section */}
                         <div className="mb-16 w-full text-left">
-                            <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-400">
+                            <h2 className="mb-6 text-md font-extrabold uppercase tracking-wider text-gray-400">
                                 Get in Touch
                             </h2>
                             <div className="space-y-4">
