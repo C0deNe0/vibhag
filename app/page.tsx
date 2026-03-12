@@ -114,7 +114,7 @@ export default function Home() {
 
     return (
         <div
-            className=" m-1 border-zinc-800  flex min-h-screen flex-col items-center bg-white dark:bg-black px-3 pt-1  text-black dark:text-white selection:bg-black dark:selection:bg-white selection:text-white dark:selection:text-black pb-32 sm:px-4 sm:pt-20 sm:pb-40 overflow-x-hidden transition-colors duration-300"
+            className=" border-zinc-800  flex min-h-screen flex-col items-center bg-white dark:bg-black px-3 pt-1  text-black dark:text-white selection:bg-black dark:selection:bg-white selection:text-white dark:selection:text-black pb-32 sm:px-4 sm:pt-20 sm:pb-40 overflow-x-hidden transition-colors duration-300"
         >
 
 
