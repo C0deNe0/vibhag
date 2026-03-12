@@ -114,7 +114,8 @@ export default function Home() {
 
     return (
         <div
-            className=" border-zinc-800  flex min-h-screen flex-col items-center bg-white dark:bg-black px-3 pt-1  text-black dark:text-white selection:bg-black dark:selection:bg-white selection:text-white dark:selection:text-black pb-32 sm:px-4 sm:pt-20 sm:pb-40 overflow-x-hidden transition-colors duration-300"
+            className=" border-zinc-800  flex min-h-screen flex-col items-center bg-white dark:bg-black px-3 pt-1  text-black dark:text-white selection:bg-black dark:selection:bg-white selection:text-white dark:selection:text-black pb-32 sm:px-4 sm:pt-20 sm:pb-40 overflow-x-hidden transition-colors duration-300
+            "
         >
 
 
@@ -227,30 +228,38 @@ export default function Home() {
                         {/* APNE STYLE ME DALNE KA HAIN */}
                         <div className="w-full space-y-4 text-left text-base leading-relaxed text-gray-600 dark:text-gray-400 sm:text-lg md:text-xl">
                             <p>
-                                a full-stack developer and{" "}
-                                <a
-                                    href="https://en.wikipedia.org/wiki/Product_design"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="underline underline-offset-4 hover:text-black dark:hover:text-white transition-colors"
-                                >
-                                    product builder
-                                </a>{" "}
-                                with deep experience across engineering, product strategy, and
-                                user-centric design.
+                                developer. builder. curious mind.
                             </p>
+
                             <p>
-                                a{" "}
+                                building ideas into real{" "}
                                 <a
-                                    href="https://en.wikipedia.org/wiki/Polymath"
+                                    href="https://en.wikipedia.org/wiki/Software"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="underline underline-offset-4 hover:text-black dark:hover:text-white transition-colors"
+                                    className="curly-link"
                                 >
-                                    polymath
+                                    software
                                 </a>{" "}
-                                who bridges technical architecture with business outcomes to
-                                create impactful, scalable solutions.
+                                from the{" "}
+                                <a
+                                    href="https://en.wikipedia.org/wiki/Software_architecture"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="curly-link"
+                                >
+                                    systems
+                                </a>{" "}
+                                that run it to the{" "}
+                                <a
+                                    href="https://en.wikipedia.org/wiki/User_interface"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="curly-link"
+                                >
+                                    interfaces
+                                </a>{" "}
+                                people experience.
                             </p>
                         </div>
 
