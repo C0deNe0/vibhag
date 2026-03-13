@@ -57,7 +57,7 @@ export function ExperienceItem({
             {collapsible && (
                 <button
                     onClick={() => setIsExpanded(!isExpanded)}
-                    className="mt-2 flex items-center gap-1 text-xs font-medium text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white"
+                    className="mt-2 flex items-center gap-1 text-xs font-medium text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900 p-1 rounded-md px-2 "
                 >
                     {isExpanded ? (
                         <>
