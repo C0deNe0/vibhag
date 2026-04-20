@@ -11,16 +11,21 @@ import {
     ArrowRight,
     Music,
     Pause,
+    Globe,
+    X,
+    ArrowUpRight,
 } from "lucide-react";
 // import { FaXTwitter } from "react-icons/fa6";
 import { ExperienceItem } from "./components/ExperienceItem";
 import { GithubGraph } from "./components/GithubGraph";
 import { TechStack } from "./components/TechStack";
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useState, useMemo } from "react";
 import { useTheme } from "next-themes";
 import { QRCodeSVG } from "qrcode.react";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
+import { useCurrentTime } from "./hooks/useCurrentTime";
+import { useLofiAudio } from "./hooks/useLofiAudio";
 import { Navbar } from "./components/Navbar";
 import { Recommendation } from "./components/Recommendation";
 import { Blogs } from "./components/Blogs";
@@ -38,79 +43,14 @@ import { SpinningNameCube } from "./components/SpinningNameCube";
 
 
 export default function Home() {
-    const [time, setTime] = useState<string>("");
+    const time = useCurrentTime();
+    const { isLofiPlaying, lofiVolume, setLofiVolume, toggleLofi } = useLofiAudio();
     const [showQR, setShowQR] = useState(false);
     const [mode, setMode] = useState<"human" | "agent">("human");
 
     const { setTheme, resolvedTheme } = useTheme();
 
-    useEffect(() => {
-        const updateTime = () => {
-            const now = new Date();
-            setTime(
-                now.toLocaleTimeString("en-IN", {
-                    timeZone: "Asia/Kolkata",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    second: "2-digit",
-                    hour12: false,
-                }),
-            );
-        };
-
-        updateTime();
-        const timer = setInterval(updateTime, 1000);
-
-        return () => clearInterval(timer);
-    }, []);
-
     const markdownContent = getMarkdownContent(time);
-
-    const [showEasterEgg, setShowEasterEgg] = useState(false);
-    const [isLofiPlaying, setIsLofiPlaying] = useState(false);
-    const [lofiVolume, setLofiVolume] = useState(1);
-    const lofiRef = useRef<HTMLAudioElement | null>(null);
-
-    useEffect(() => {
-        if (lofiRef.current) {
-            lofiRef.current.volume = lofiVolume;
-        }
-    }, [lofiVolume]);
-
-    useEffect(() => {
-        return () => {
-            if (lofiRef.current) {
-                lofiRef.current.pause();
-                lofiRef.current = null;
-            }
-        };
-    }, []);
-
-    const toggleLofi = () => {
-        if (!lofiRef.current) {
-            lofiRef.current = new Audio("/lofi.mp3");
-            lofiRef.current.loop = true;
-            lofiRef.current.volume = lofiVolume;
-        }
-
-        if (isLofiPlaying) {
-            lofiRef.current.pause();
-        } else {
-            lofiRef.current
-                .play()
-                .catch((e) => console.error("Lofi play failed:", e));
-        }
-        setIsLofiPlaying(!isLofiPlaying);
-    };
-
-    const starPositions = useMemo(() => {
-        return [...Array(50)].map(() => ({
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            duration: 2 + Math.random() * 3,
-            delay: Math.random() * 5,
-        }));
-    }, []);
 
     return (
         <div
@@ -425,7 +365,7 @@ export default function Home() {
                                     </a>{" "}
                                     or shoot an{" "}
                                     <a
-                                        href="mailto:adityapatil24680@gmail.com"
+                                        href="mailto:[EMAIL_ADDRESS]"
                                         className="text-black dark:text-white underline underline-offset-4 hover:text-gray-600 dark:hover:text-gray-300"
                                     >
                                         email
@@ -446,27 +386,69 @@ export default function Home() {
             {/* QR Code Modal */}
             {showQR && (
                 <div
-                    className="fixed inset-0 z-60 flex items-center justify-center bg-black/20 dark:bg-white/5 backdrop-blur-sm"
+                    className="fixed inset-0 z-60 flex items-center justify-center bg-black/50 backdrop-blur-md px-4 animate-in fade-in duration-300"
                     onClick={() => setShowQR(false)}
                 >
                     <div
-                        className="relative rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-black p-8 shadow-2xl"
                         onClick={(e) => e.stopPropagation()}
+                        className="relative w-full max-w-sm overflow-hidden rounded-3xl border border-white/10 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl shadow-[0_25px_80px_rgba(0,0,0,0.35)] animate-in zoom-in-95 duration-300"
                     >
+                        {/* Glow Effects */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10 pointer-events-none" />
+                        <div className="absolute -top-24 -right-24 h-48 w-48 rounded-full bg-blue-500/20 blur-3xl pointer-events-none" />
+                        <div className="absolute -bottom-24 -left-24 h-48 w-48 rounded-full bg-purple-500/20 blur-3xl pointer-events-none" />
+
+                        {/* Close Button */}
                         <button
                             onClick={() => setShowQR(false)}
-                            className="absolute -right-3 -top-3 rounded-full bg-black dark:bg-white p-2 text-white dark:text-black transition-transform hover:scale-110"
+                            className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-gray-200/60 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 text-gray-700 dark:text-gray-200 backdrop-blur-md transition-all duration-200 hover:scale-110 hover:rotate-90"
                             aria-label="Close"
                         >
-                            {/* <X className="h-4 w-4" /> */}
+                            <X className="h-4 w-4" />
                         </button>
-                        <div className="rounded-lg bg-white p-2">
-                            <QRCodeSVG
-                                value="https://www.justaditya.com/"
-                                size={200}
-                                level="H"
-                                includeMargin={false}
-                            />
+
+                        {/* Content */}
+                        <div className="relative px-8 pt-10 pb-8 text-center">
+                            {/* Branding */}
+                            <div className="mb-6">
+                                {/* <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-lg">
+                                    <Globe className="h-6 w-6" />
+                                </div> */}
+
+                                <h2 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                    Scan to Visit
+                                </h2>
+
+                                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                                    Open instantly on your phone
+                                </p>
+                            </div>
+
+                            {/* QR Card */}
+                            <div className="mx-auto mb-3 w-fit rounded-3xl border border-gray-200 dark:border-zinc-800 bg-white p-4 shadow-inner transition-transform duration-300 hover:scale-105">
+                                <QRCodeSVG
+                                    value={process.env.NEXT_PUBLIC_WEBSITE_QRCODE || ""}
+                                    size={220}
+                                    level="H"
+                                    includeMargin={false}
+                                />
+                            </div>
+
+                            {/* Website URL */}
+                            <p className="mb-5 text-sm font-medium text-gray-700 dark:text-gray-300 break-all">
+                                {process.env.NEXT_PUBLIC_WEBSITE_QRCODE}
+                            </p>
+
+                            {/* CTA */}
+                            <a
+                                href={process.env.NEXT_PUBLIC_WEBSITE_QRCODE}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 rounded-full bg-black px-5 py-3 text-sm font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+                            >
+                                Open Website
+                                <ArrowUpRight className="h-4 w-4" />
+                            </a>
                         </div>
                     </div>
                 </div>
