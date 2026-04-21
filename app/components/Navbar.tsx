@@ -1,72 +1,132 @@
-import { Bot, Calendar, Github, Linkedin, QrCode, User } from "lucide-react"
+import {
+    Bot,
+    Calendar,
+    Github,
+    Linkedin,
+    QrCode,
+    User,
+    Gamepad2,
+} from "lucide-react";
 
-export const Navbar = ({ mode, setMode, showQR, setShowQR }: {
+export const Navbar = ({
+    mode,
+    setMode,
+    showQR,
+    setShowQR,
+}: {
     mode: string;
     setMode: any;
     showQR: boolean;
     setShowQR: any;
 }) => {
-
-
+    const isSideMode = mode === "agent" || mode === "game";
 
     return (
-        <nav className="fixed bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-full border border-gray-200 dark:border-zinc-700 bg-white/70 dark:bg-zinc-900/80 px-4 py-3 shadow-sm backdrop-blur-md transition-all hover:bg-white/90 dark:hover:bg-zinc-900 sm:gap-6 sm:px-6">
-            {/* Mode Toggle Switch */}
-            <div className="flex items-center">
-                <button
-                    onClick={() => setMode(mode === "human" ? "agent" : "human")}
-                    className="group relative flex h-7 w-12 cursor-pointer rounded-full bg-gray-200 dark:bg-zinc-700 p-1 transition-colors duration-200 ease-in-out hover:bg-gray-300 dark:hover:bg-zinc-600 focus:outline-none"
-                    role="switch"
-                    aria-checked={mode === "agent"}
-                    title={`Switch to ${mode === "human" ? "agent" : "human"} mode`}
+        <nav
+            className={`
+        fixed z-50 border
+        bg-white/75 dark:bg-zinc-900/80
+        
+        border-gray-200 dark:border-zinc-700
+        shadow-[0_10px_40px_rgba(0,0,0,0.15)]
+
+        flex items-center justify-center
+        will-change-transform
+
+        transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+
+        ${isSideMode
+                    ? `
+              left-7 top-1/2
+              -translate-y-1/2 translate-x-0
+              flex-col gap-3
+              px-2 py-5
+              rounded-3xl
+              scale-100 opacity-100
+            `
+                    : `
+              left-1/2 bottom-6
+              -translate-x-1/2 translate-y-0
+              flex-row gap-4
+              px-5 py-3
+              rounded-full
+              scale-100 opacity-100
+            `
+                }
+      `}
+        >
+            {/* Soft Glow */}
+            <div className="pointer-events-none absolute inset-0  rounded-3xl bg-gradient-to-br from-white/20 via-transparent to-zinc-300/10 dark:from-white/5 dark:to-white/0" />
+
+            {/* Toggle */}
+            <button
+                onClick={() =>
+                    setMode(mode === "human" ? "agent" : "human")
+                }
+                className="relative z-10 flex h-7 w-12 rounded-full bg-zinc-200 p-1 transition-all duration-300 hover:scale-105 dark:bg-zinc-700"
+            >
+                <div
+                    className={`
+            flex h-5 w-5 items-center justify-center rounded-full bg-white shadow-md
+            transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+            ${mode === "agent" ? "translate-x-5 rotate-12" : "translate-x-0 rotate-0"}
+          `}
                 >
-                    <div
-                        className={`flex h-5 w-5 transform items-center justify-center rounded-full bg-white dark:bg-white shadow-sm transition duration-200 ease-in-out ${mode === "agent" ? "translate-x-5" : "translate-x-0"
-                            }`}
-                    >
-                        {mode === "human" ? (
-                            <User className="h-3 w-3 text-black" />
-                        ) : (
-                            <Bot className="h-3 w-3 text-black" />
-                        )}
-                    </div>
-                </button>
-            </div>
+                    {mode === "human" ? (
+                        <User className="h-3 w-3 text-black" />
+                    ) : (
+                        <Bot className="h-3 w-3 text-black" />
+                    )}
+                </div>
+            </button>
+
+            {/* QR */}
             <button
                 onClick={() => setShowQR(true)}
-                className="text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors hover:scale-110"
-                aria-label="Show QR Code"
+                className="relative z-10 rounded-full p-2 text-zinc-500 transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:text-black dark:text-zinc-300 dark:hover:text-white"
             >
                 <QrCode className="h-5 w-5" />
             </button>
-            <div className="h-6 w-px bg-gray-200 dark:bg-zinc-700" />
+
+            {/* Divider */}
+            <div
+                className={`
+          bg-zinc-300 dark:bg-zinc-700 transition-all duration-500
+          ${isSideMode ? "h-px w-7" : "h-6 w-px"}
+        `}
+            />
+
+            {/* GitHub */}
             <a
                 href="https://github.com/C0deNe0"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors hover:scale-110"
+                className="relative z-10 rounded-full p-2 text-zinc-500 transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:text-black dark:text-zinc-300 dark:hover:text-white"
             >
                 <Github className="h-5 w-5" />
             </a>
+
+            {/* LinkedIn */}
             <a
-                href="www.linkedin.com/in/naveenhiremath1"
+                href="https://www.linkedin.com/in/naveenhiremath1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors hover:scale-110"
+                className="relative z-10 rounded-full p-2 text-zinc-500 transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:text-black dark:text-zinc-300 dark:hover:text-white"
             >
                 <Linkedin className="h-5 w-5" />
             </a>
 
+            {/* Calendar */}
             <a
                 href="https://cal.com/adi-patil/30min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors hover:scale-110"
+                className="relative z-10 rounded-full p-2 text-zinc-500 transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:text-black dark:text-zinc-300 dark:hover:text-white"
             >
                 <Calendar className="h-5 w-5" />
             </a>
+
+
         </nav>
-    )
-}
-
-
+    );
+};

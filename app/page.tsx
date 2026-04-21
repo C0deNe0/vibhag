@@ -50,8 +50,6 @@ export default function Home() {
 
     const { setTheme, resolvedTheme } = useTheme();
 
-    const markdownContent = getMarkdownContent(time);
-
     return (
         <div
             className=" border-zinc-800  flex min-h-screen flex-col items-center bg-white dark:bg-black px-3 pt-1  text-black dark:text-white selection:bg-black dark:selection:bg-white selection:text-white dark:selection:text-black pb-32 sm:px-4 sm:pt-20 sm:pb-40 overflow-x-hidden transition-colors duration-300
@@ -68,23 +66,113 @@ export default function Home() {
                 {mode === "agent" ? (
                     /* Agent Mode - Markdown View */
                     <motion.main
-                        key="agent"
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.35, ease: "easeOut" }}
-                        className="flex w-full max-w-2xl flex-col items-start text-left px-4 sm:px-0"
+                        key="human"
+                        initial={{ opacity: 0, y: 18, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -12, scale: 0.98 }}
+                        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                        className="
+    relative w-full max-w-7xl mx-auto overflow-hidden
+
+    rounded-[30px]
+
+    bg-gradient-to-b
+    from-zinc-950
+    via-black
+    to-zinc-950
+
+    border border-white/10
+
+    shadow-[0_0_0_1px_rgba(255,255,255,0.02),0_30px_100px_rgba(0,0,0,0.65)]
+
+    backdrop-blur-xl
+  "
                     >
-                        <pre
-                            className="w-full whitespace-pre-wrap font-mono text-sm leading-relaxed text-black dark:text-gray-300 selection:bg-black dark:selection:bg-white selection:text-white dark:selection:text-black antialiased"
-                            style={{
-                                fontFamily:
-                                    '"Courier New", Courier, "Lucida Sans Typewriter", "Lucida Console", monospace',
-                            }}
-                        >
-                            {/* <TypingChallenge /> */}
-                            <SnakeGame />
-                        </pre>
+                        {/* Glow Effects */}
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-zinc-100/40 dark:to-zinc-900/30" />
+                        <div className="pointer-events-none absolute top-0 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-zinc-300/20 blur-3xl dark:bg-white/5" />
+
+                        {/* Top Separator */}
+                        <Separator className="border-x-0 border-b border-zinc-200 dark:border-zinc-800" />
+
+                        {/* Main Content Wrapper */}
+                        <div className="relative z-10 px-3 py-4 md:px-6 md:py-6 space-y-4">
+
+                            {/* Cover */}
+                            <div className="rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800">
+                                <ProfileCover />
+                            </div>
+
+                            <Separator className="border-x-0 border-y border-zinc-200 dark:border-zinc-800" />
+
+                            {/* Hero */}
+                            <section className="px-2 md:px-4 py-6 text-center">
+                                <h1 className="text-5xl font-bold tracking-tight sm:text-7xl">
+                                    Naveen Hiremath
+                                </h1>
+
+                                <p className="mt-4 text-zinc-500 dark:text-zinc-400 text-sm sm:text-base">
+                                    developer • builder • curious mind
+                                </p>
+                            </section>
+
+                            <Separator className="border-x-0 border-y border-zinc-200 dark:border-zinc-800" />
+
+                            {/* About */}
+                            <section className="px-2 md:px-4 py-6 text-left">
+                                <div className="space-y-4 text-base leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-lg md:text-xl">
+                                    <p>building ideas into real software.</p>
+                                    <p>from systems that run it to interfaces people experience.</p>
+                                </div>
+                            </section>
+
+                            <Separator className="border-x-0 border-y border-zinc-200 dark:border-zinc-800" />
+
+                            {/* Experience */}
+                            <section className="px-2 md:px-4 py-6">
+                                <h2 className="mb-6 text-xs font-bold uppercase tracking-[0.25em] text-zinc-400 dark:text-zinc-500">
+                                    Experience
+                                </h2>
+
+                                <div className="space-y-10">
+                                    {/* ExperienceItem components here */}
+                                </div>
+                            </section>
+
+                            <Separator className="border-x-0 border-y border-zinc-200 dark:border-zinc-800" />
+
+                            {/* Tech Stack */}
+                            <section className="px-2 md:px-4 py-6">
+                                <h2 className="mb-6 text-xs font-bold uppercase tracking-[0.25em] text-zinc-400 dark:text-zinc-500">
+                                    Tech Stack
+                                </h2>
+
+                                <TechStack />
+                            </section>
+
+                            <Separator className="border-x-0 border-y border-zinc-200 dark:border-zinc-800" />
+
+                            {/* Blogs */}
+                            <section className="px-2 md:px-4 py-6">
+                                <Blogs />
+                            </section>
+
+                            <Separator className="border-x-0 border-y border-zinc-200 dark:border-zinc-800" />
+
+                            {/* Contact */}
+                            <section className="px-2 md:px-4 py-6 text-left">
+                                <h2 className="mb-6 text-xs font-bold uppercase tracking-[0.25em] text-zinc-400 dark:text-zinc-500">
+                                    Get in Touch
+                                </h2>
+
+                                <p className="text-zinc-600 dark:text-zinc-400">
+                                    Connect with me on LinkedIn or send an email.
+                                </p>
+                            </section>
+                        </div>
+
+                        {/* Bottom Separator */}
+                        <Separator className="border-x-0 border-t border-zinc-200 dark:border-zinc-800" />
                     </motion.main>
                 ) : (
                     /* Human Mode - Original View */
@@ -310,37 +398,6 @@ export default function Home() {
                             <TechStack />
                         </div>
 
-
-
-                        {/* Recommendations by Clients Section */}
-                        {/* <Recommendation /> */}
-
-                        {/* Videos Section */}
-                        {/* <div className="mb-16 w-full text-left">
-              <h2 className="mb-6 text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
-                Explainer Videos
-              </h2>
-              <p className="mb-8 text-lg text-gray-600 dark:text-gray-400">
-                Here is how I explain complex systems on my{" "}
-                <a
-                  href="https://www.youtube.com/@theracecondition"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-black dark:text-white underline underline-offset-4 hover:text-gray-600 dark:hover:text-gray-300"
-                >
-                  YouTube Channel
-                </a>
-              </p>
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-gray-100 dark:border-gray-900 bg-gray-50 dark:bg-gray-950 shadow-sm transition-all hover:shadow-md grayscale hover:grayscale-0 duration-500">
-                <iframe
-                  src="https://www.youtube.com/embed/m84tBP_4DWE"
-                  title="Explaining Complex Systems"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  className="h-full w-full"
-                />
-              </div>
-            </div> */}
 
                         {/* Writings & Blogs Section */}
                         <Blogs />
