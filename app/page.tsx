@@ -35,6 +35,7 @@ import { SnakeGame } from "./components/gameComponents/SnakeGame";
 import { cn } from "./utils/utils";
 import { ProfileCover } from "./components/ProfileCover";
 import { SpinningNameCube } from "./components/SpinningNameCube";
+import { SpeedCubing } from "./components/SpeedCubing";
 
 // import { PomodoroTimer } from "./components/PomodoroTimer";
 // import { NeuralNetworkSim } from "./components/NeuralNetworkSim";
@@ -403,7 +404,7 @@ export default function Home() {
                         <Blogs />
                         {/* 
                         <a href="https://app.daily.dev/0_naveen_0"><img src="https://api.daily.dev/devcards/v2/9fOrzy05ikhdgoaVtxTZ1.png?type=default&r=ai0" width="356" alt="Naveen's Dev Card" /></a> */}
-
+                        <SpeedCubing />
                         {/* Get in Touch Section */}
                         <div className="mb-16 w-full text-left">
                             <h2 className="mb-6 text-md font-extrabold uppercase tracking-wider text-gray-400">
@@ -431,8 +432,7 @@ export default function Home() {
                             </div>
                         </div>
 
-                        {/* Pomodoro Timer Section */}
-                        {/* <PomodoroTimer /> */}
+
                     </motion.main>
                 )}
             </AnimatePresence>
