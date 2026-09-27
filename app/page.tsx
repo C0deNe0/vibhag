@@ -34,8 +34,6 @@ import { TypingChallenge } from "./components/gameComponents/TypingChallenge";
 import { SnakeGame } from "./components/gameComponents/SnakeGame";
 import { cn } from "./utils/utils";
 import { ProfileCover } from "./components/ProfileCover";
-import { SpinningNameCube } from "./components/SpinningNameCube";
-import { SpeedCubing } from "./components/SpeedCubing";
 
 // import { PomodoroTimer } from "./components/PomodoroTimer";
 // import { NeuralNetworkSim } from "./components/NeuralNetworkSim";
@@ -66,115 +64,7 @@ export default function Home() {
             <AnimatePresence mode="wait">
                 {mode === "agent" ? (
                     /* Agent Mode - Markdown View */
-                    <motion.main
-                        key="human"
-                        initial={{ opacity: 0, y: 18, scale: 0.98 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -12, scale: 0.98 }}
-                        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                        className="
-    relative w-full max-w-7xl mx-auto overflow-hidden
-
-    rounded-[30px]
-
-    bg-gradient-to-b
-    from-zinc-950
-    via-black
-    to-zinc-950
-
-    border border-white/10
-
-    shadow-[0_0_0_1px_rgba(255,255,255,0.02),0_30px_100px_rgba(0,0,0,0.65)]
-
-    backdrop-blur-xl
-  "
-                    >
-                        {/* Glow Effects */}
-                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-zinc-100/40 dark:to-zinc-900/30" />
-                        <div className="pointer-events-none absolute top-0 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-zinc-300/20 blur-3xl dark:bg-white/5" />
-
-                        {/* Top Separator */}
-                        <Separator className="border-x-0 border-b border-zinc-200 dark:border-zinc-800" />
-
-                        {/* Main Content Wrapper */}
-                        <div className="relative z-10 px-3 py-4 md:px-6 md:py-6 space-y-4">
-
-                            {/* Cover */}
-                            <div className="rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800">
-                                <ProfileCover />
-                            </div>
-
-                            <Separator className="border-x-0 border-y border-zinc-200 dark:border-zinc-800" />
-
-                            {/* Hero */}
-                            <section className="px-2 md:px-4 py-6 text-center">
-                                <h1 className="text-5xl font-bold tracking-tight sm:text-7xl">
-                                    Naveen Hiremath
-                                </h1>
-
-                                <p className="mt-4 text-zinc-500 dark:text-zinc-400 text-sm sm:text-base">
-                                    developer • builder • curious mind
-                                </p>
-                            </section>
-
-                            <Separator className="border-x-0 border-y border-zinc-200 dark:border-zinc-800" />
-
-                            {/* About */}
-                            <section className="px-2 md:px-4 py-6 text-left">
-                                <div className="space-y-4 text-base leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-lg md:text-xl">
-                                    <p>building ideas into real software.</p>
-                                    <p>from systems that run it to interfaces people experience.</p>
-                                </div>
-                            </section>
-
-                            <Separator className="border-x-0 border-y border-zinc-200 dark:border-zinc-800" />
-
-                            {/* Experience */}
-                            <section className="px-2 md:px-4 py-6">
-                                <h2 className="mb-6 text-xs font-bold uppercase tracking-[0.25em] text-zinc-400 dark:text-zinc-500">
-                                    Experience
-                                </h2>
-
-                                <div className="space-y-10">
-                                    {/* ExperienceItem components here */}
-                                </div>
-                            </section>
-
-                            <Separator className="border-x-0 border-y border-zinc-200 dark:border-zinc-800" />
-
-                            {/* Tech Stack */}
-                            <section className="px-2 md:px-4 py-6">
-                                <h2 className="mb-6 text-xs font-bold uppercase tracking-[0.25em] text-zinc-400 dark:text-zinc-500">
-                                    Tech Stack
-                                </h2>
-
-                                <TechStack />
-                            </section>
-
-                            <Separator className="border-x-0 border-y border-zinc-200 dark:border-zinc-800" />
-
-                            {/* Blogs */}
-                            <section className="px-2 md:px-4 py-6">
-                                <Blogs />
-                            </section>
-
-                            <Separator className="border-x-0 border-y border-zinc-200 dark:border-zinc-800" />
-
-                            {/* Contact */}
-                            <section className="px-2 md:px-4 py-6 text-left">
-                                <h2 className="mb-6 text-xs font-bold uppercase tracking-[0.25em] text-zinc-400 dark:text-zinc-500">
-                                    Get in Touch
-                                </h2>
-
-                                <p className="text-zinc-600 dark:text-zinc-400">
-                                    Connect with me on LinkedIn or send an email.
-                                </p>
-                            </section>
-                        </div>
-
-                        {/* Bottom Separator */}
-                        <Separator className="border-x-0 border-t border-zinc-200 dark:border-zinc-800" />
-                    </motion.main>
+                    <SnakeGame />
                 ) : (
                     /* Human Mode - Original View */
                     <motion.main
@@ -196,7 +86,9 @@ export default function Home() {
                         {/* Phonetic Pronunciation (Aesthetic touch often found in minimal portfolios) */}
                         <div className="mb-8 flex flex-wrap border-yellow-200  items-center justify-center gap-2 text-xs text-gray-400 dark:text-gray-500 sm:text-sm">
 
-                            <SpinningNameCube />
+                            <button>
+                                Naveen Hiremath |
+                            </button>
                             <span className="text-gray-300 dark:text-gray-700">•</span>
                             <span>noun</span>
                             <span className="text-gray-300 dark:text-gray-700">•</span>
@@ -402,9 +294,6 @@ export default function Home() {
 
                         {/* Writings & Blogs Section */}
                         <Blogs />
-                        {/* 
-                        <a href="https://app.daily.dev/0_naveen_0"><img src="https://api.daily.dev/devcards/v2/9fOrzy05ikhdgoaVtxTZ1.png?type=default&r=ai0" width="356" alt="Naveen's Dev Card" /></a> */}
-                        <SpeedCubing />
                         {/* Get in Touch Section */}
                         <div className="mb-16 w-full text-left">
                             <h2 className="mb-6 text-md font-extrabold uppercase tracking-wider text-gray-400">
@@ -441,76 +330,78 @@ export default function Home() {
             <Navbar mode={mode} setMode={setMode} showQR={showQR} setShowQR={setShowQR} />
 
             {/* QR Code Modal */}
-            {showQR && (
-                <div
-                    className="fixed inset-0 z-60 flex items-center justify-center bg-black/50 backdrop-blur-md px-4 animate-in fade-in duration-300"
-                    onClick={() => setShowQR(false)}
-                >
+            {
+                showQR && (
                     <div
-                        onClick={(e) => e.stopPropagation()}
-                        className="relative w-full max-w-sm overflow-hidden rounded-3xl border border-white/10 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl shadow-[0_25px_80px_rgba(0,0,0,0.35)] animate-in zoom-in-95 duration-300"
+                        className="fixed inset-0 z-60 flex items-center justify-center bg-black/50 backdrop-blur-md px-4 animate-in fade-in duration-300"
+                        onClick={() => setShowQR(false)}
                     >
-                        {/* Glow Effects */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10 pointer-events-none" />
-                        <div className="absolute -top-24 -right-24 h-48 w-48 rounded-full bg-blue-500/20 blur-3xl pointer-events-none" />
-                        <div className="absolute -bottom-24 -left-24 h-48 w-48 rounded-full bg-purple-500/20 blur-3xl pointer-events-none" />
-
-                        {/* Close Button */}
-                        <button
-                            onClick={() => setShowQR(false)}
-                            className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-gray-200/60 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 text-gray-700 dark:text-gray-200 backdrop-blur-md transition-all duration-200 hover:scale-110 hover:rotate-90"
-                            aria-label="Close"
+                        <div
+                            onClick={(e) => e.stopPropagation()}
+                            className="relative w-full max-w-sm overflow-hidden rounded-3xl border border-white/10 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl shadow-[0_25px_80px_rgba(0,0,0,0.35)] animate-in zoom-in-95 duration-300"
                         >
-                            <X className="h-4 w-4" />
-                        </button>
+                            {/* Glow Effects */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10 pointer-events-none" />
+                            <div className="absolute -top-24 -right-24 h-48 w-48 rounded-full bg-blue-500/20 blur-3xl pointer-events-none" />
+                            <div className="absolute -bottom-24 -left-24 h-48 w-48 rounded-full bg-purple-500/20 blur-3xl pointer-events-none" />
 
-                        {/* Content */}
-                        <div className="relative px-8 pt-10 pb-8 text-center">
-                            {/* Branding */}
-                            <div className="mb-6">
-                                {/* <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-lg">
+                            {/* Close Button */}
+                            <button
+                                onClick={() => setShowQR(false)}
+                                className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-gray-200/60 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 text-gray-700 dark:text-gray-200 backdrop-blur-md transition-all duration-200 hover:scale-110 hover:rotate-90"
+                                aria-label="Close"
+                            >
+                                <X className="h-4 w-4" />
+                            </button>
+
+                            {/* Content */}
+                            <div className="relative px-8 pt-10 pb-8 text-center">
+                                {/* Branding */}
+                                <div className="mb-6">
+                                    {/* <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-lg">
                                     <Globe className="h-6 w-6" />
                                 </div> */}
 
-                                <h2 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                                    Scan to Visit
-                                </h2>
+                                    <h2 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                        Scan to Visit
+                                    </h2>
 
-                                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                                    Open instantly on your phone
+                                    <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                                        Open instantly on your phone
+                                    </p>
+                                </div>
+
+                                {/* QR Card */}
+                                <div className="mx-auto mb-3 w-fit rounded-3xl border border-gray-200 dark:border-zinc-800 bg-white p-4 shadow-inner transition-transform duration-300 hover:scale-105">
+                                    <QRCodeSVG
+                                        value={process.env.NEXT_PUBLIC_WEBSITE_QRCODE || ""}
+                                        size={220}
+                                        level="H"
+                                        includeMargin={false}
+                                    />
+                                </div>
+
+                                {/* Website URL */}
+                                <p className="mb-5 text-sm font-medium text-gray-700 dark:text-gray-300 break-all">
+                                    {process.env.NEXT_PUBLIC_WEBSITE_QRCODE}
                                 </p>
+
+                                {/* CTA */}
+                                <a
+                                    href={process.env.NEXT_PUBLIC_WEBSITE_QRCODE}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 rounded-full bg-black px-5 py-3 text-sm font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+                                >
+                                    Open Website
+                                    <ArrowUpRight className="h-4 w-4" />
+                                </a>
                             </div>
-
-                            {/* QR Card */}
-                            <div className="mx-auto mb-3 w-fit rounded-3xl border border-gray-200 dark:border-zinc-800 bg-white p-4 shadow-inner transition-transform duration-300 hover:scale-105">
-                                <QRCodeSVG
-                                    value={process.env.NEXT_PUBLIC_WEBSITE_QRCODE || ""}
-                                    size={220}
-                                    level="H"
-                                    includeMargin={false}
-                                />
-                            </div>
-
-                            {/* Website URL */}
-                            <p className="mb-5 text-sm font-medium text-gray-700 dark:text-gray-300 break-all">
-                                {process.env.NEXT_PUBLIC_WEBSITE_QRCODE}
-                            </p>
-
-                            {/* CTA */}
-                            <a
-                                href={process.env.NEXT_PUBLIC_WEBSITE_QRCODE}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 rounded-full bg-black px-5 py-3 text-sm font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
-                            >
-                                Open Website
-                                <ArrowUpRight className="h-4 w-4" />
-                            </a>
                         </div>
                     </div>
-                </div>
-            )}
-        </div>
+                )
+            }
+        </div >
     );
 }
 

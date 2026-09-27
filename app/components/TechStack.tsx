@@ -16,11 +16,12 @@ const categories = [
     {
         name: "Backend",
         skills: [
-            { name: "Echo", slug: "echo" },
+            { name: "Fiber", slug: "fiber" },
             { name: "Node.js", slug: "nodedotjs" },
-            { name: "PostgreSQL", slug: "postgresql" },
-            { name: "MongoDB", slug: "mongodb" },
-            { name: "Redis", slug: "redis" },
+            // { name: "PostgreSQL", slug: "postgresql" },
+            // { name: "MongoDB", slug: "mongodb" },
+            // { name: "Redis", slug: "redis" },
+            // { name: "Clickhouse", slug: "clickhouse" },
         ],
     },
     {
@@ -29,20 +30,29 @@ const categories = [
             { name: "React", slug: "react" },
             { name: "Next.js", slug: "nextdotjs" },
             { name: "Tailwind CSS", slug: "tailwindcss" },
-            { name: "Shadcn UI", slug: "shadcnui" },
+            // { name: "Shadcn UI", slug: "shadcnui" },
             { name: "GSAP", slug: "gsap" },
-            { name: "Framer Motion", slug: "framer" },
+            // { name: "Framer` Motion", slug: "framer" },
         ],
+    },
+    {
+        name: "Database",
+        skills: [
+            { name: "PostgreSQL", slug: "postgresql" },
+            { name: "MongoDB", slug: "mongodb" },
+            { name: "Redis", slug: "redis" },
+            { name: "Clickhouse", slug: "clickhouse" },
+        ]
     },
     {
         name: "Infra & Tools",
         skills: [
+            { name: "Linux", slug: "linux" },
             { name: "Docker", slug: "docker" },
             { name: "AWS", slug: "googlecloud" },
             { name: "Git", slug: "git" },
-            { name: "GitHub", slug: "github" },
-            { name: "Linux", slug: "linux" },
-            { name: "Nginx", slug: "nginx" },
+            // { name: "GitHub", slug: "github" },
+            // { name: "Nginx", slug: "nginx" },
         ],
     },
 ];
@@ -115,7 +125,7 @@ export function TechStack() {
                             transition={{ duration: 0.4, ease: "circOut" }}
                             className="overflow-hidden"
                         >
-                            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 pt-4">
+                            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5 pt-4">
                                 {categories.map((category) => (
                                     <div key={category.name} className="space-y-4">
                                         <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 border-b border-gray-100 dark:border-zinc-800 pb-2">
@@ -129,7 +139,7 @@ export function TechStack() {
                                                 >
                                                     <div className="h-6 w-6 shrink-0 transition-all duration-300">
                                                         <img
-                                                            src={skill.slug == "echo" ? "https://echo.labstack.com/img/logo-light.svg" : `https://cdn.simpleicons.org/${skill.slug}`}
+                                                            src={skill.slug == "fiber" ? "https://raw.githubusercontent.com/devicons/devicon/master/icons/fiber/fiber-plain.svg" : `https://cdn.simpleicons.org/${skill.slug}`}
                                                             alt={skill.name}
                                                             className="h-full w-full object-contain opacity-50 group-hover:opacity-100 transition-all duration-300 brightness-0 group-hover:brightness-100 dark:brightness-0 dark:invert dark:group-hover:invert-0 dark:group-hover:brightness-100"
                                                             loading="lazy"
